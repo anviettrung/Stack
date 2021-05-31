@@ -6,7 +6,7 @@ public class Stack : MonoBehaviour
     public StackCube stackingCube;
 
 	[Header("Color")]
-	protected int stackCount = 0;
+	public int stackCount = 0;
 	public int changeColorLoop = 10;
 	public Material[] colors;
 	public int colorID = 0;
