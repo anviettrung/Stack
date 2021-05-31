@@ -21,6 +21,19 @@ public class Stack : MonoBehaviour
 		OnStackCut(baseCube);
 	}
 
+	public void Restart()
+	{
+		stackCount = 0;
+		colorID = 0;
+
+		foreach (Transform child in transform)
+			if (child != baseCube.transform)
+				Destroy(child.gameObject);
+
+		onNewStack.Invoke(baseCube);
+		OnStackCut(baseCube);
+	}
+
 	public void OnStackCut(StackCube cube)
 	{
 		stackCount++;

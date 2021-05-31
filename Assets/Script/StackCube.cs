@@ -53,7 +53,7 @@ public class StackCube : MonoBehaviour
 
 	private void Update()
 	{
-		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && moveOnAxis.moving)
+		if ((Input.GetKeyDown(KeyCode.A) || Input.GetMouseButtonDown(0)) && moveOnAxis.moving)
 			Cut(previ);
 	}
 
@@ -81,6 +81,8 @@ public class StackCube : MonoBehaviour
 			isPerfectCut = true;
 			//PerfectEffect();
 			stackParent.OnStackCut(this);
+
+			Debug.Log("a");
 		}
 		// Normal cut
 		else if (cutLength < this.Size) {
@@ -96,10 +98,12 @@ public class StackCube : MonoBehaviour
 			clone.coll.isTrigger = false;
 
 			stackParent.OnStackCut(this);
+			Debug.Log("b");
 		}
 		// Lose
 		else {
 			rb.useGravity = true;
+			Debug.Log("c");
 		}
 	}
 
